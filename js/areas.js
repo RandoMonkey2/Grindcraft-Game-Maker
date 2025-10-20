@@ -9,23 +9,32 @@ setGameInfo({
 // Resources
 
 addResources({                                          // Function for adding all the resources (items/tools/buildings) that are used in your game!
-    dirt: {
-        image: "images/dirt.png",
-    },
-    stick: {
-        image: "images/stick.png",
-    },
-    planks: {
-        image: "images/planks.png",
-    },
-    door: {
-        image: "images/door.png",
-    },
-    "crafting table": {
-        image: "images/craftingTable.png",
-    },
     "dirt hut": {
         image: "images/dirtHut.png",
+    },
+    "light": {
+        image: "images/light.png",
+    },
+    "water": {
+        image: "images/water.png",
+    },
+    "mineral": {
+        image: "images/mineral.png",
+    },
+    "carbondioxide": {
+        image: "images/carbondioxide.png",
+    },
+    "bee": {
+        image: "images/BE.png",
+    },
+    "butterfly": {
+        image: "images/butterfly.png",
+    },
+    "dna": {
+        image: "images/DNA.png",
+    },
+     "dark": {
+        image: "images/DARK.png",
     },
 });
 
@@ -33,27 +42,81 @@ addResources({                                          // Function for adding a
 
 addArea("c",                                            // Function for adding areas to your game
 {
-    name: "City State",
+    name: "The World",
     image: "images/areas/cityState.png",
     unlocked: true,
     updateWhileUnactive: true,
 
     grinds: [
         {
-            name: "surface",
+            name: "Chorophyll",
             unlocked: true,
             auto: ["dirt hut"],                         // List of items that will auto-grind this grind
             background: "images/grinds/overworld.png",
             resources: [
                 {
-                    id: "stick",
-                    time: [["", 0.5]],
+                    id: "light",
+                    time: [["", 10.0]],
                     probability: 50,
                 },
                 {
-                    id: "dirt",
-                    time: [["", 0.6]],
+                    id: "dark",
+                    time: [["", 10.0]],
                     probability: 50,
+                },
+            ]
+        },
+        {
+            name: "Roots",
+            unlocked: true,
+            auto: ["dirt hut"],                         // List of items that will auto-grind this grind
+            background: "images/grinds/overworld.png",
+            resources: [
+                {
+                    id: "water",
+                    time: [["", 10.0]],
+                    probability: 50,
+                },
+                {
+                    id: "mineral",
+                    time: [["", 20.0]],
+                    probability: 50,
+                },
+            ]
+        },
+        {
+            name: "Air",
+            unlocked: true,
+            auto: ["dirt hut"],                         // List of items that will auto-grind this grind
+            background: "images/grinds/overworld.png",
+            resources: [
+                {
+                    id: "carbondioxide",
+                    time: [["", 10.0]],
+                    probability: 95,
+                },
+                {
+                    id: "bee",
+                    time: [["", 40.0]],
+                    probability: 3,
+                },
+                {
+                    id: "butterfly",
+                    time: [["", 30.0]],
+                    probability: 2,
+                },
+            ]
+        },
+        {
+            name: "DNA",
+            unlocked: true,
+            auto: ["dirt hut"],                         // List of items that will auto-grind this grind
+            background: "images/grinds/overworld.png",
+            resources: [
+                {
+                    id: "dna",
+                    time: [["", 30.0]],
+                    probability: 2,
                 },
             ]
         },
@@ -61,41 +124,56 @@ addArea("c",                                            // Function for adding a
 
     crafts: [
         {
-            name: "stick",
-            desc: "Used to craft planks",
+            name: "DNA",
+            desc: "Codes for all life",
             type: "display",
-            cost: [["stick", 0]],
+            cost: [["dna", 0]],
         },
         {
-            name: "dirt",
-            desc: "Used to build a dirt hut",
+            name: "Light",
+            desc: "Light from the Sun",
             type: "display",
-            cost: [["dirt", 0]],
+            cost: [["light", 0]],
         },
         {
-            name: "planks",
-            desc: "Used to make a crafting table",
-            type: "craft",
-            cost: [["stick", 2]],
+            name: "Dark",
+            desc: "The abscence of light",
+            type: "display",
+            cost: [["dark", 0]],
         },
         {
-            name: "crafting table",
-            desc: "Required to build a dirt hut",
-            type: "craft",
-            cost: [["planks", 4]],
+            name: "Mineral",
+            desc: "tiny rocks in the ground",
+            type: "display",
+            cost: [["mineral", 0]],
         },
         {
-            name: "door",
-            desc: "Required to build a dirt hut",
-            type: "craft",
-            amount: 3,
-            cost: [["planks", 6]],
+            name: "Carbon Dioxide",
+            desc: "One carbon two oxygen",
+            type: "display",
+            cost: [["carbondioxide", 0]],
         },
+        {
+            name: "Bee",
+            desc: "it's a bee",
+            type: "display",
+            cost: [["bee", 0]],
+        },
+        {
+            name: "Butterfly",
+            desc: "Happy lil guy :)",
+            type: "display",
+            cost: [["butterfly", 0]],
+        },
+
+
+
+
         {
             name: "dirt hut",
             desc: "Required to beat the game!",
-            type: "craft",
-            cost: [["dirt", 23], ["crafting table", 1], ["door", 1]],
+            type: "display",
+            cost: [["dirt hut", 0]],
             message: "You have beaten the game!",
         },
     ],
